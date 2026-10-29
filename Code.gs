@@ -12,6 +12,7 @@ const DEFAULT_KB_URL = 'https://evyatarc3.github.io/coupons/kb.md';
 const DEFAULT_MODEL = 'gemini-flash-latest';
 const FALLBACK_MODEL = 'gemini-flash-lite-latest';
 const DEFAULT_CLAUDE_MODEL = 'claude-haiku-5-5';
+let LAST_ERR = '';
 
 const SYSTEM = `את/ה "העוזר של קורס הקופונים" – העוזר הרשמי של קורס השתתפות במחקר (קופונים) במחלקה לפסיכולוגיה, אוניברסיטת אריאל, ושל מערכת SONA (arieluniversity.sona-systems.com).
 קהל: סטודנטים, עוזרי מחקר ומנהלי מעבדות.
@@ -60,9 +61,9 @@ function doPost(e) {
       const text = askGemini_(geminiKey, [props.getProperty('MODEL') || DEFAULT_MODEL, FALLBACK_MODEL], kb, audience, msgs);
       if (text) return json_({ text: text });
     }
-    return json_({ error: 'unavailable' });
+    return json_({ error: 'unavailable', detail: LAST_ERR });
   } catch (err) {
-    return json_({ error: 'server' });
+    return json_({ error: 'server', detail: String(err).slice(0, 200) });
   }
 }
 
@@ -83,7 +84,13 @@ function askClaude_(key, model, kb, audience, msgs) {
       messages: turns,
     }),
   });
-  if (res.getResponseCode() !== 200) { console.warn('Claude ' + res.getResponseCode() + ': ' + res.getContentText().slice(0, 300)); return ''; }
+  if (res.getResponseCode() !== 200) {
+    let msg = '';
+    try { const e = JSON.parse(res.getContentText()).error || {}; msg = (e.type || '') + ': ' + (e.message || ''); } catch (x) { msg = res.getContentText().slice(0, 200); }
+    LAST_ERR = 'claude ' + res.getResponseCode() + ' ' + msg.slice(0, 200);
+    console.warn(LAST_ERR);
+    return '';
+  }
   const j = JSON.parse(res.getContentText());
   return (j.content || []).filter(c => c.type === 'text').map(c => c.text).join('').trim();
 }
@@ -109,6 +116,7 @@ function askGemini_(key, models, kb, audience, msgs) {
       const text = parts.map(p => p.text || '').join('').trim();
       if (text) return text;
     }
+    LAST_ERR = (LAST_ERR ? LAST_ERR + ' | ' : '') + 'gemini ' + model + ' ' + code;
     console.warn('Gemini ' + model + ' ' + code);
     if ([404, 429, 500, 503].indexOf(code) < 0) break;
   }
