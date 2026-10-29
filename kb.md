@@ -448,7 +448,7 @@
 
 ## 3.21 עוד פעולות שימושיות לחוקרים
 - **שינוי מועד:** **View/Administer Time Slots**, ואז **Modify** במועד, ואז **Edit Timeslot**. **מחיקת כמה מועדים:** **Delete Multiple Timeslots** בעמוד המועדים. אם כבר יש נרשמים, מעדכנים אותם קודם (**Contact All Participants** בעמוד המועד).
-- **ביטול הרשמה של נבדק/ת:** בעמוד המועד לוחצים **Cancel** ליד ההרשמה. אפשר רק כשהסטטוס הוא **No Action Taken**.
+- **ביטול הרשמה של נבדק/ת:** בעמוד המועד לוחצים **Cancel** ליד ההרשמה. אפשר רק כשהסטטוס הוא **No Action Taken**. אם כבר סומנו השתתפות או אי־הגעה: מחזירים קודם ל-**No Action Taken**, לוחצים **Update Sign-Ups**, ואז מבטלים.
 - **הודעה לנבדקים:** **Contact Participants** בתפריט המחקר, **Contact** ליד נבדק/ת, או **Contact All Participants** בעמוד המועד.
 - **הגבלת הרשמה לפי השאלון המקדים:** **View/Modify Restrictions** בשורה **Prescreen Restrictions** בעמוד פרטי המחקר.
 - **ניסוי בזום:** סוג **Standard**. בכל מועד מדביקים את הקישור בשדה **Videoconference URL**. שווי: קופון לכל רבע שעה. פגישות זום נספרות לבונוס.
