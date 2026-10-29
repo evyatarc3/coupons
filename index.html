@@ -45,7 +45,7 @@ h2{color:var(--navy);font-size:1.35rem;margin:26px 0 12px}
 h2:first-of-type{margin-top:4px}
 .keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;margin:6px 0 10px}
 .fact{background:#EEF2F7;border-radius:12px;padding:14px 16px}
-.fact b{display:block;font-size:1.7rem;color:var(--navy);line-height:1.1}
+.fact b{display:block;font-size:1.7rem;color:var(--navy);line-height:1.1;unicode-bidi:isolate}
 .fact span{color:var(--muted);font-size:.93rem}
 .fact.hot{background:var(--navy);color:#fff}.fact.hot b{color:#fff}.fact.hot span{color:#D5DCEA}
 .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px}
@@ -142,7 +142,7 @@ footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 20px 3
   <div class="keyfacts">
     <div class="fact hot"><b>32</b><span>קופונים עד סוף שנה א׳ (חוג לאחר התואר: 16)</span></div>
     <div class="fact"><b>½ / 1</b><span>קופון לרבע שעה: שאלון מקוון / מעבדה או זום</span></div>
-    <div class="fact"><b>+1</b><span>קופון בונוס על כל 3 ניסויי מעבדה או זום (מבקשים!)</span></div>
+    <div class="fact"><b dir="ltr" style="text-align:right">+1</b><span>קופון בונוס על כל 3 ניסויי מעבדה או זום (מבקשים!)</span></div>
     <div class="fact"><b>Course</b><span>בהרשמה בוחרים את קורס הפסיכולוגיה שלך. אחרת הקופון לא נספר</span></div>
   </div>
   <h2 id="s-tools">כלים</h2>
@@ -180,19 +180,6 @@ footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 20px 3
 <li>אלה שני קורסים נפרדים. כל קופון נספר רק בקורס שאליו שויך, לפי תחילת שם המחקר.</li>
 <li>המערכת מציגה דרישה של 12 בקרימינולוגיה, <b>אבל צריך רק 5</b>.</li>
 <li>מי שצבר/ה 5 בקרימינולוגיה פונה לד״ר מעין בארי נגר: <a href="mailto:maayanbn@ariel.ac.il" dir="ltr">maayanbn@ariel.ac.il</a>.</li></ul></div></details>
-</section>
-<section class="cat"><h3>שווי קופונים</h3>
-<details class="qa" id="q-values" data-id="values"><summary>כמה קופונים שווה כל מחקר?</summary><div class="ans"><table class="mini"><tr><th>סוג</th><th>שווי</th></tr>
-<tr><td>שאלון מקוון</td><td><b>חצי קופון לכל רבע שעה</b> (30 דקות = קופון 1)</td></tr>
-<tr><td>ניסוי במעבדה או פגישה בזום</td><td><b>קופון לכל רבע שעה</b> (שעה = 4 קופונים)</td></tr>
-<tr><td>ניסויים מיוחדים (EEG, מאמץ פיזי וכו׳)</td><td>שווי מוגדל, מופיע בעמוד המחקר</td></tr></table>
-<p>מספר הקופונים של כל מחקר מופיע ליד שמו ובעמוד המחקר.</p></div></details>
-</section>
-<section class="cat"><h3>בונוס</h3>
-<details class="qa" id="q-bonus" data-id="bonus"><summary>מה זה קופון בונוס ואיך מקבלים אותו?</summary><div class="ans"><ul><li><b>על כל שלושה ניסויי מעבדה או פגישות זום מקבלים קופון בונוס אחד.</b> שאלונים מקוונים לא נספרים לבונוס.</li>
-<li><b>הבונוס לא נכנס אוטומטית.</b> האחריות לבקש אותו היא של הסטודנט/ית בלבד.</li>
-<li>שולחים לאביתר (<a href="mailto:evyatarco@ariel.ac.il" dir="ltr">evyatarco@ariel.ac.il</a>) מייל עם שם מלא, ת.ז., ושמות ותאריכי שלושת הניסויים.</li></ul>
-<p class="tool-link" data-goto="tool-email" data-template="bonus">← לנסח מייל לבקשת בונוס</p></div></details>
 </section>
 <section class="cat"><h3>כניסה למערכת</h3>
 <details class="qa" id="q-login-mail" data-id="login-mail"><summary>לא קיבלתי מייל עם שם משתמש וסיסמה</summary><div class="ans"><ol><li>מי שרשום/ה לקורס הוזן/ה למערכת אוטומטית. <b>אין צורך לפתוח חשבון לבד.</b></li>
@@ -268,6 +255,19 @@ footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 20px 3
 <p>עבר זמן רב ואין ציון? פנו לאביתר עם שם מלא ות.ז.</p></div></details>
 <details class="qa" id="q-deadline" data-id="deadline"><summary>עד מתי צריך לסיים?</summary><div class="ans"><p>עד סוף שנה א׳. במילואים בדרגה 3: עד סוף שנה ב׳.</p></div></details>
 </section>
+<section class="cat"><h3>שווי קופונים</h3>
+<details class="qa" id="q-values" data-id="values"><summary>כמה קופונים שווה כל מחקר?</summary><div class="ans"><table class="mini"><tr><th>סוג</th><th>שווי</th></tr>
+<tr><td>שאלון מקוון</td><td><b>חצי קופון לכל רבע שעה</b> (30 דקות = קופון 1)</td></tr>
+<tr><td>ניסוי במעבדה או פגישה בזום</td><td><b>קופון לכל רבע שעה</b> (שעה = 4 קופונים)</td></tr>
+<tr><td>ניסויים מיוחדים (EEG, מאמץ פיזי וכו׳)</td><td>שווי מוגדל, מופיע בעמוד המחקר</td></tr></table>
+<p>מספר הקופונים של כל מחקר מופיע ליד שמו ובעמוד המחקר.</p></div></details>
+</section>
+<section class="cat"><h3>בונוס</h3>
+<details class="qa" id="q-bonus" data-id="bonus"><summary>מה זה קופון בונוס ואיך מקבלים אותו?</summary><div class="ans"><ul><li><b>על כל שלושה ניסויי מעבדה או פגישות זום מקבלים קופון בונוס אחד.</b> שאלונים מקוונים לא נספרים לבונוס.</li>
+<li><b>הבונוס לא נכנס אוטומטית.</b> האחריות לבקש אותו היא של הסטודנט/ית בלבד.</li>
+<li>שולחים לאביתר (<a href="mailto:evyatarco@ariel.ac.il" dir="ltr">evyatarco@ariel.ac.il</a>) מייל עם שם מלא, ת.ז., ושמות ותאריכי שלושת הניסויים.</li></ul>
+<p class="tool-link" data-goto="tool-email" data-template="bonus">← לנסח מייל לבקשת בונוס</p></div></details>
+</section>
 <section class="cat"><h3>פנייה ועזרה</h3>
 <details class="qa" id="q-contact" data-id="contact"><summary>למי פונים?</summary><div class="ans"><ol><li><b>שאלה על נהלים:</b> קודם כאן, ובהקלטת ההדרכה.</li>
 <li><b>שאלה על מחקר מסוים</b> (מועדים, הכנה, קופון שלא הוזן): לחוקר/ת, דרך המעטפה בעמוד המחקר.</li>
@@ -329,36 +329,12 @@ footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 20px 3
     </div>
     <div class="tool"><h3>רשימת בדיקה: כל שבוע</h3>
       <ul style="margin:0;padding-inline-start:20px">
-      <li>פותחים <span class="ui" dir="ltr">Uncredited Timeslots</span></li><li>מזינים קופון או אי־הגעה לכל נבדק/ת</li><li>שומרים (<span class="ui" dir="ltr">Process Changes</span> / <span class="ui" dir="ltr">Update Sign-Ups</span>)</li><li>מתעדים חריגים ומייצאים רשימה</li><li>פותחים מועדים לשבוע הבא</li><li>בעיה חריגה? פונים לאביתר</li></ul>
+      <li>פותחים <span class="ui" dir="ltr">Uncredited Timeslots</span></li><li>מזינים קופון או אי־הגעה לכל נבדק/ת</li><li>שומרים: <span class="ui" dir="ltr">Process Changes</span> או <span class="ui" dir="ltr">Update Sign-Ups</span></li><li>מתעדים חריגים ומייצאים רשימה</li><li>פותחים מועדים לשבוע הבא</li><li>בעיה חריגה? פונים לאביתר</li></ul>
     </div>
   </div>
   <p style="font-size:.92rem;color:var(--muted)">לניסוח מייל לפתיחת חשבון לעוזר/ת מחקר: <span class="tool-link" data-goto="tool-email" data-template="newra">כלי ניסוח המייל ←</span></p>
   <h2 id="r-faq">שאלות נפוצות</h2>
-  <section class="cat"><h3>שווי קופונים</h3>
-<details class="qa" id="q-values" data-id="values"><summary>כמה קופונים שווה כל מחקר?</summary><div class="ans"><table class="mini"><tr><th>סוג</th><th>שווי</th></tr>
-<tr><td>שאלון מקוון</td><td><b>חצי קופון לכל רבע שעה</b> (30 דקות = קופון 1)</td></tr>
-<tr><td>ניסוי במעבדה או פגישה בזום</td><td><b>קופון לכל רבע שעה</b> (שעה = 4 קופונים)</td></tr>
-<tr><td>ניסויים מיוחדים (EEG, מאמץ פיזי וכו׳)</td><td>שווי מוגדל, מופיע בעמוד המחקר</td></tr></table>
-<p>מספר הקופונים של כל מחקר מופיע ליד שמו ובעמוד המחקר.</p></div></details>
-</section>
-<section class="cat"><h3>בונוס</h3>
-<details class="qa" id="q-bonus" data-id="bonus"><summary>מה זה קופון בונוס ואיך מקבלים אותו?</summary><div class="ans"><ul><li><b>על כל שלושה ניסויי מעבדה או פגישות זום מקבלים קופון בונוס אחד.</b> שאלונים מקוונים לא נספרים לבונוס.</li>
-<li><b>הבונוס לא נכנס אוטומטית.</b> האחריות לבקש אותו היא של הסטודנט/ית בלבד.</li>
-<li>שולחים לאביתר (<a href="mailto:evyatarco@ariel.ac.il" dir="ltr">evyatarco@ariel.ac.il</a>) מייל עם שם מלא, ת.ז., ושמות ותאריכי שלושת הניסויים.</li></ul>
-<p class="tool-link" data-goto="tool-email" data-template="bonus">← לנסח מייל לבקשת בונוס</p></div></details>
-</section>
-<section class="cat"><h3>כניסה למערכת</h3>
-<details class="qa" id="q-password" data-id="password"><summary>שכחתי סיסמה / רוצה להחליף סיסמה</summary><div class="ans"><ul><li><b>שכחתם:</b> בעמוד הכניסה לוחצים <span class="ui" dir="ltr">Forgot Password?</span> ומקבלים סיסמה חדשה למייל.</li>
-<li><b>החלפה:</b> אחרי הכניסה, דרך <span class="ui" dir="ltr">My Profile</span>.</li>
-<li>לא מצליחים? פנו לאביתר עם שם מלא ות.ז.</li></ul></div></details>
-</section>
-<section class="cat"><h3>פנייה ועזרה</h3>
-<details class="qa" id="q-contact" data-id="contact"><summary>למי פונים?</summary><div class="ans"><ol><li><b>שאלה על נהלים:</b> קודם כאן, ובהקלטת ההדרכה.</li>
-<li><b>שאלה על מחקר מסוים</b> (מועדים, הכנה, קופון שלא הוזן): לחוקר/ת, דרך המעטפה בעמוד המחקר.</li>
-<li><b>מערכת, קורס, בונוס, הקלות, מילואים:</b> לאביתר כהן, <a href="mailto:evyatarco@ariel.ac.il" dir="ltr">evyatarco@ariel.ac.il</a>.</li></ol>
-<p>בכל פנייה ציינו <b>שם מלא ות.ז.</b> פנייה בלי פרטים אלה לא תיענה.</p></div></details>
-</section>
-<section class="cat"><h3>תפקידים וכללים</h3>
+  <section class="cat"><h3>תפקידים וכללים</h3>
 <details class="qa" id="q-r-roles" data-id="r-roles"><summary>מי עושה מה במערכת?</summary><div class="ans"><ul><li><b>מנהל/ת המעבדה:</b> פותח/ת את המחקר, קובע/ת את שווי הקופונים, משייך/ת את עוזרי המחקר, ואחראי/ת שהקופונים מוזנים בזמן.</li>
 <li><b>עוזרי המחקר:</b> פותחים מועדים, מריצים נבדקים ומזינים קופונים אחרי כל מפגש.</li>
 <li><b>מנהלי המערכת (פרופ׳ יניב ממה ואביתר כהן):</b> מאשרים מחקרים חדשים ומטפלים בחריגים, בבונוסים ובמכסות.</li></ul>
@@ -459,6 +435,30 @@ footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 20px 3
 <li>סוג מחקר, מספר חלקים וסוג תגמול <b>לא ניתנים לשינוי</b>. פותחים מחקר חדש, אפשר עם <span class="ui" dir="ltr">Copy Study</span>.</li>
 <li><b>סגירה:</b> <span class="ui" dir="ltr">Active Study: No</span>, אחרי שכל הקופונים הוזנו.</li></ul></div></details>
 <details class="qa" id="q-r-studentclaims" data-id="r-studentclaims"><summary>סטודנט/ית טוען/ת שהשתתף/ה ולא קיבל/ה קופון</summary><div class="ans"><p>בודקים במועד (<span class="ui" dir="ltr">Modify</span>) או ב-<span class="ui" dir="ltr">Uncredited Timeslots</span>, ומזינים אם מגיע. השתתף/ה בלי להירשם? <span class="ui" dir="ltr">Manual Sign-Up</span>.</p></div></details>
+</section>
+<section class="cat"><h3>שווי קופונים</h3>
+<details class="qa" id="q-values" data-id="values"><summary>כמה קופונים שווה כל מחקר?</summary><div class="ans"><table class="mini"><tr><th>סוג</th><th>שווי</th></tr>
+<tr><td>שאלון מקוון</td><td><b>חצי קופון לכל רבע שעה</b> (30 דקות = קופון 1)</td></tr>
+<tr><td>ניסוי במעבדה או פגישה בזום</td><td><b>קופון לכל רבע שעה</b> (שעה = 4 קופונים)</td></tr>
+<tr><td>ניסויים מיוחדים (EEG, מאמץ פיזי וכו׳)</td><td>שווי מוגדל, מופיע בעמוד המחקר</td></tr></table>
+<p>מספר הקופונים של כל מחקר מופיע ליד שמו ובעמוד המחקר.</p></div></details>
+</section>
+<section class="cat"><h3>בונוס</h3>
+<details class="qa" id="q-bonus" data-id="bonus"><summary>מה זה קופון בונוס ואיך מקבלים אותו?</summary><div class="ans"><ul><li><b>על כל שלושה ניסויי מעבדה או פגישות זום מקבלים קופון בונוס אחד.</b> שאלונים מקוונים לא נספרים לבונוס.</li>
+<li><b>הבונוס לא נכנס אוטומטית.</b> האחריות לבקש אותו היא של הסטודנט/ית בלבד.</li>
+<li>שולחים לאביתר (<a href="mailto:evyatarco@ariel.ac.il" dir="ltr">evyatarco@ariel.ac.il</a>) מייל עם שם מלא, ת.ז., ושמות ותאריכי שלושת הניסויים.</li></ul>
+<p class="tool-link" data-goto="tool-email" data-template="bonus">← לנסח מייל לבקשת בונוס</p></div></details>
+</section>
+<section class="cat"><h3>כניסה למערכת</h3>
+<details class="qa" id="q-password" data-id="password"><summary>שכחתי סיסמה / רוצה להחליף סיסמה</summary><div class="ans"><ul><li><b>שכחתם:</b> בעמוד הכניסה לוחצים <span class="ui" dir="ltr">Forgot Password?</span> ומקבלים סיסמה חדשה למייל.</li>
+<li><b>החלפה:</b> אחרי הכניסה, דרך <span class="ui" dir="ltr">My Profile</span>.</li>
+<li>לא מצליחים? פנו לאביתר עם שם מלא ות.ז.</li></ul></div></details>
+</section>
+<section class="cat"><h3>פנייה ועזרה</h3>
+<details class="qa" id="q-contact" data-id="contact"><summary>למי פונים?</summary><div class="ans"><ol><li><b>שאלה על נהלים:</b> קודם כאן, ובהקלטת ההדרכה.</li>
+<li><b>שאלה על מחקר מסוים</b> (מועדים, הכנה, קופון שלא הוזן): לחוקר/ת, דרך המעטפה בעמוד המחקר.</li>
+<li><b>מערכת, קורס, בונוס, הקלות, מילואים:</b> לאביתר כהן, <a href="mailto:evyatarco@ariel.ac.il" dir="ltr">evyatarco@ariel.ac.il</a>.</li></ol>
+<p>בכל פנייה ציינו <b>שם מלא ות.ז.</b> פנייה בלי פרטים אלה לא תיענה.</p></div></details>
 </section>
   <h2 id="r-guide">מדריך עם צילומי מסך</h2>
   <p style="font-size:.9rem;color:var(--muted)">הצילומים נלקחו מחשבון מנהל, עם פרטי נבדקים בדויים. אצל חוקרים ייתכנו הבדלים קטנים בתפריטים. לחיצה על תמונה מגדילה אותה.</p>
@@ -652,7 +652,7 @@ function calcReq(){
   document.getElementById('rq-milbox').style.display=mil?'block':'none';
   const out=document.getElementById('rq-out');
   let base=track==='post'?16:32, msg='';
-  if(!mil){ out.className='out'; out.innerHTML='החובה שלך: <b>'+base+' קופונים</b> עד סוף שנה א׳.'+(track==='post'?' (חוג לאחר התואר)':'')+'<br>החובה האישית שמופיעה ב-SONA (Credits Overview) היא הקובעת.'; return; }
+  if(!mil){ out.className='out'; out.innerHTML='החובה שלך: <b>'+base+' קופונים</b> עד סוף שנה א׳.'+(track==='post'?' (חוג לאחר התואר)':'')+'<br>החובה האישית מופיעה ב-SONA במסך <span class="ui" dir="ltr">Credits Overview</span>, והיא הקובעת.'; return; }
   let tier=0, req=base;
   if(deg>150){tier=3; req=12;}
   else if(yr>90||sem>50){tier=2; req=16;}
@@ -731,12 +731,12 @@ buildForm();
 
 // ---------- troubleshooter: "my credit isn't counted"
 const TR={
- start:{q:'מה הסטטוס של המחקר ב-My Schedule/Credits?',o:[['Credits granted (אושר)','course'],['Awaiting action from researcher (ממתין)','wait'],['המחקר לא מופיע שם בכלל','missing']]},
+ start:{q:'מה הסטטוס של המחקר במסך <span class="ui" dir="ltr">My Schedule/Credits</span>?',o:[['Credits granted (אושר)','course'],['Awaiting action from researcher (ממתין)','wait'],['המחקר לא מופיע שם בכלל','missing']]},
  wait:{q:'עבר שבוע וחצי מיום ההשתתפות?',o:[['כן','late'],['עוד לא','early']]},
  early:{end:'הכול תקין. לחוקרים יש שבוע וחצי להזין את הקופון. קופון ממתין עדיין לא נספר בחובה.'},
  late:{end:'פנו לחוקר/ת דרך אייקון המעטפה בעמוד המחקר. אין מענה? פנו לאביתר עם שם מלא, ת.ז., שם המחקר ותאריך ההשתתפות.',tool:'researcher'},
  missing:{end:'כנראה שההרשמה לא הושלמה, כי לא לחצתם Sign Up בעמוד האישור, או שההשתתפות לא נרשמה. פנו לחוקר/ת דרך עמוד המחקר.',tool:'researcher'},
- course:{q:'מה כתוב בעמודה Course של אותו מחקר?',o:[['None, או [Not Assigned]','fix'],['קורס של מחלקה אחרת (מדעי הבריאות / קרימינולוגיה)','other'],['קורס פסיכולוגיה','ok']]},
+ course:{q:'מה כתוב בעמודה <span class="ui" dir="ltr">Course</span> של אותו מחקר?',o:[['None, או [Not Assigned]','fix'],['קורס של מחלקה אחרת (מדעי הבריאות / קרימינולוגיה)','other'],['קורס פסיכולוגיה','ok']]},
  fix:{end:'לוחצים Reassign בשורת המחקר, בוחרים את קורס הפסיכולוגיה שלך, ולוחצים Reassign Credit. אין קורס פסיכולוגיה בתפריט? פנו לאביתר עם שם מלא ות.ז.'},
  other:{q:'שם המחקר מתחיל ב"פסיכולוגיה"?',o:[['כן','fix'],['לא, הוא של מחלקה אחרת','otherok']]},
  otherok:{end:'זה תקין. מחקר של מחלקה אחרת נספר בקורס של אותה מחלקה, ולא בחובת הפסיכולוגיה.'},
@@ -762,7 +762,7 @@ lb.addEventListener('click',()=>lb.classList.remove('on'));
 // ---------- open FAQ from hash like #q-bonus
 function openFromHash(){
   const h=location.hash.slice(1);
-  if(h==='students'||h==='staff'){setTab(h);return;}
+  if(h==='students'||h==='staff'){setTab(h); window.scrollTo(0,0); return;}
   const el=document.getElementById(h);
   if(el){const p=el.closest('.panel'); if(p) setTab(p.id); if(el.tagName==='DETAILS'){el.open=true;el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),2000);} el.scrollIntoView({block:'center'});}
   else setTab('students');
