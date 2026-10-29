@@ -75,7 +75,7 @@ function askClaude_(key, model, kb, audience, msgs) {
     method: 'post', contentType: 'application/json', muteHttpExceptions: true,
     headers: { 'x-api-key': key, 'anthropic-version': '2023-06-01' },
     payload: JSON.stringify({
-      model: model, max_tokens: 1024, temperature: 0.2,
+      model: model, max_tokens: 1024,
       system: [
         { type: 'text', text: SYSTEM },
         { type: 'text', text: '# מאגר הידע\n' + kb, cache_control: { type: 'ephemeral' } },
