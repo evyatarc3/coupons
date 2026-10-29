@@ -104,6 +104,7 @@ footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 20px 3
 .chat-msgs{flex:1;overflow-y:auto;padding:12px 14px;background:var(--bg)}
 .msg{max-width:88%;margin:6px 0;padding:9px 12px;border-radius:12px;font-size:.95rem;line-height:1.55;word-wrap:break-word}
 .msg p{margin:3px 0}.msg ul,.msg ol{margin:4px 0;padding-inline-start:20px}
+.msg blockquote{margin:6px 0;padding:8px 10px;background:#F5F7FA;border-right:3px solid var(--teal);border-radius:6px;font-size:.92rem}
 .msg.user{background:var(--teal);color:#fff;margin-inline-start:auto;border-bottom-right-radius:4px}
 .msg.bot{background:#fff;border:1px solid var(--line);margin-inline-end:auto;border-bottom-left-radius:4px}
 .msg.bot.err{background:#FDF1EC;border-color:#F3C2B2}
@@ -792,6 +793,7 @@ window.addEventListener('hashchange',openFromHash); openFromHash();
     for(const l of L){
       if(m=l.match(/^\s*[-*•]\s+(.*)/)){ if(list!=='ul'){ if(list) h+='</'+list+'>'; h+='<ul>'; list='ul'; } h+='<li>'+inline(m[1])+'</li>'; }
       else if(m=l.match(/^\s*\d+[.)]\s+(.*)/)){ if(list!=='ol'){ if(list) h+='</'+list+'>'; h+='<ol>'; list='ol'; } h+='<li>'+inline(m[1])+'</li>'; }
+      else if(m=l.match(/^\s*&gt;\s?(.*)/)){ if(list!=='blockquote'){ if(list) h+='</'+list+'>'; h+='<blockquote>'; list='blockquote'; } h+=inline(m[1])+'<br>'; }
       else { if(list){ h+='</'+list+'>'; list=null; } if(l.trim()) h+='<p>'+inline(l.replace(/^#+\s*/,''))+'</p>'; }
     } if(list) h+='</'+list+'>'; return h; }
   function add(role,html,cls){ const d=document.createElement('div'); d.className='msg '+role+(cls?' '+cls:''); d.innerHTML=html; msgsEl.appendChild(d); msgsEl.scrollTop=msgsEl.scrollHeight; return d; }
