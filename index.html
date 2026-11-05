@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1RB53CW6Q2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1RB53CW6Q2');
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>מרכז העזרה: קורס השתתפות במחקר (קופונים) · פסיכולוגיה אריאל</title>
@@ -899,6 +907,64 @@ window.addEventListener('hashchange',openFromHash); openFromHash();
   }
   sendBtn.addEventListener('click',send);
   inp.addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); send(); } });
+})();
+</script>
+<script>
+// ---------- Google Analytics: usage events (no personal data is sent)
+(function(){
+  function ev(name, params){ try{ if(window.gtag) gtag('event', name, params||{}); }catch(e){} }
+  // strip anything that looks like an ID / phone / email before sending free text
+  function clean(s){ return String(s||'').replace(/\S+@\S+/g,'[email]').replace(/\d{5,}/g,'[num]').replace(/\s+/g,' ').trim().slice(0,100); }
+  function tab(){ return (document.querySelector('.panel.active')||{}).id || ''; }
+
+  // clicks (capture phase, so we see the state before the page's own handlers change it)
+  document.addEventListener('click', function(e){
+    var t = e.target, el;
+    if(el = t.closest('nav.tabs button')) return ev('tab_select', {tab: el.dataset.tab});
+    if(el = t.closest('#results .res h4')) return ev('search_result_click', {result: clean(el.firstChild && el.firstChild.textContent)});
+    if(el = t.closest('.tool-link')) return ev('tool_link_click', {target: el.dataset.goto||'', tab: tab()});
+    if(el = t.closest('#em-open')) return ev('email_open', {template: (document.getElementById('em-type')||{}).value||''});
+    if(el = t.closest('#em-copy')) return ev('email_copy', {template: (document.getElementById('em-type')||{}).value||''});
+    if(el = t.closest('#tr-body [data-n]')) return ev('troubleshooter_step', {step: el.dataset.n});
+    if(el = t.closest('#fab, #assistant button')) return ev('assistant_open', {tab: tab()});
+    if(el = t.closest('#chat-chips button')) return ev('assistant_question', {source: 'chip', tab: tab()});
+    if(el = t.closest('#chat-send')){ var i=document.getElementById('chat-text'); if(i && i.value.trim() && !el.disabled) ev('assistant_question', {source: 'typed', tab: tab()}); return; }
+  }, true);
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Enter' && !e.shiftKey && e.target.id==='chat-text' && e.target.value.trim()){
+      var b=document.getElementById('chat-send'); if(!b || !b.disabled) ev('assistant_question', {source: 'typed', tab: tab()});
+    }
+  }, true);
+
+  // FAQ items opened
+  document.addEventListener('toggle', function(e){
+    var d = e.target;
+    if(d.tagName==='DETAILS' && d.open){
+      var s = d.querySelector('summary');
+      ev('faq_open', {faq_id: d.dataset.id || d.id || '', faq_question: clean(s && s.textContent), tab: tab()});
+    }
+  }, true);
+
+  // site search: one event after the user stops typing
+  var q=document.getElementById('q'), st, last='';
+  if(q) q.addEventListener('input', function(){
+    clearTimeout(st);
+    st=setTimeout(function(){
+      var v=clean(q.value); if(v.length<2 || v===last) return; last=v;
+      ev('search', {search_term: v, results: document.querySelectorAll('#results .res').length, tab: tab()});
+    }, 1500);
+  });
+
+  // email template chosen
+  var sel=document.getElementById('em-type');
+  if(sel) sel.addEventListener('change', function(){ ev('email_template_select', {template: sel.value}); });
+
+  // calculators: one event per calculator per page view
+  var used={};
+  [['tool-req','requirement_calc'],['tool-value','credit_value_calc'],['tool-email','email_builder']].forEach(function(p){
+    var box=document.getElementById(p[0]); if(!box) return;
+    box.addEventListener('input', function(){ if(used[p[1]]) return; used[p[1]]=1; ev('tool_use', {tool: p[1]}); });
+  });
 })();
 </script>
 </body>
